@@ -1,7 +1,6 @@
 package sk.stuba.fei.hmi_androidsensors;
 
 import android.app.FragmentTransaction;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -26,14 +25,14 @@ public class MainActivity extends AppCompatActivity {
             ProximitySensor proximitySensor = new ProximitySensor();
             proximitySensor.setArguments(getIntent().getExtras());
 
-            Compas compas = new Compas();
-            compas.setArguments(getIntent().getExtras());
+            Compass compass = new Compass();
+            compass.setArguments(getIntent().getExtras());
 
             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
             fragmentTransaction.add(R.id.fragment_container, accelerometer);
             fragmentTransaction.add(R.id.fragment_container, lightSensor);
-            fragmentTransaction.add(R.id.fragment_container, compas);
             fragmentTransaction.add(R.id.fragment_container, proximitySensor);
+            fragmentTransaction.add(R.id.fragment_container, compass);
 
             fragmentTransaction.commit();
         }

@@ -8,8 +8,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Proximity sensor"
-        android:id="@+id/proximitysensor_title" />
+        android:text="Compass"
+        android:id="@+id/compass_title" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -19,8 +19,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Proximity Value:"
-            android:id="@+id/proximityLabel"
+            android:text="Angle:"
+            android:id="@+id/compassLabel"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp" />
 
@@ -28,6 +28,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.0000"
-            android:id="@+id/proximityValue" />
+            android:id="@+id/compassValue" />
     </LinearLayout>
 </LinearLayout>
