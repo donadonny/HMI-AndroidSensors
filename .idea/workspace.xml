@@ -23,20 +23,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bbcd662-cc4e-4e2e-a04d-d2d995f4adfd" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\_user\02_Personal\School\Ing\LS 2015-2016\HMI\HMI-AndroidSensors\app\src\main\java\sk\stuba\fei\hmi_androidsensors\Compas.java" afterPath="$PROJECT_DIR$/app/src/main/java/sk/stuba/fei/hmi_androidsensors/Compass.java" />
-      <change type="MOVED" beforePath="C:\_user\02_Personal\School\Ing\LS 2015-2016\HMI\HMI-AndroidSensors\app\src\main\res\layout\compas_fragment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/compass_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/sk/stuba/fei/hmi_androidsensors/Accelerometer.java" afterPath="$PROJECT_DIR$/app/src/main/java/sk/stuba/fei/hmi_androidsensors/Accelerometer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/sk/stuba/fei/hmi_androidsensors/LightSensor.java" afterPath="$PROJECT_DIR$/app/src/main/java/sk/stuba/fei/hmi_androidsensors/LightSensor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/sk/stuba/fei/hmi_androidsensors/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/sk/stuba/fei/hmi_androidsensors/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/sk/stuba/fei/hmi_androidsensors/ProximitySensor.java" afterPath="$PROJECT_DIR$/app/src/main/java/sk/stuba/fei/hmi_androidsensors/ProximitySensor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/accelerometer_fragment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/accelerometer_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/lightsensor_fragment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/lightsensor_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/proximitysensor_fragment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/proximitysensor_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="3bbcd662-cc4e-4e2e-a04d-d2d995f4adfd" name="Default" comment="" />
     <ignored path="HMI-AndroidSensors.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -2035,7 +2022,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.4978678" order="13" side_tool="false" content_ui="tabs" />
