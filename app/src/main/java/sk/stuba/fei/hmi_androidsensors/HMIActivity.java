@@ -32,7 +32,7 @@ public class HMIActivity extends AppCompatActivity {
             compass.setArguments(getIntent().getExtras());
 
             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.add(R.id.fragment_container, accelerometer);
+            fragmentTransaction.add(R.id.fragment_container, accelerometer, "draw");
             fragmentTransaction.add(R.id.fragment_container, lightSensor);
             fragmentTransaction.add(R.id.fragment_container, proximitySensor);
             fragmentTransaction.add(R.id.fragment_container, compass);
