@@ -17,7 +17,6 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 import sk.stuba.fei.helpClasses.Range;
-import sk.stuba.fei.helpClasses.Scale;
 
 /**
  * Created by mlaticek on 2/22/2016.
@@ -26,6 +25,7 @@ public class Accelerometer extends Fragment implements SensorEventListener {
 
     private Context context;
     private LinearLayout accelerometerLayout;
+    private LinearLayout accelerometerGraphics;
     private AccelerometerVisual accVisual;
 
     private SensorManager sensorManager;
@@ -49,7 +49,7 @@ public class Accelerometer extends Fragment implements SensorEventListener {
 
         View fragView = inflater.inflate(R.layout.accelerometer_fragment, container, false);
         context = getActivity().getApplicationContext();
-        initiView(fragView);
+        initView(fragView);
 
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -61,12 +61,13 @@ public class Accelerometer extends Fragment implements SensorEventListener {
 
         // add canvas
         accVisual = new AccelerometerVisual(context, new Range(-sensor.getMaximumRange()/3, sensor.getMaximumRange()/3));
-        accelerometerLayout.addView(accVisual);
+        accelerometerGraphics.addView(accVisual);
         return fragView;
     }
 
-    private void initiView(View view) {
+    private void initView(View view) {
         accelerometerLayout = (LinearLayout) view.findViewById(R.id.accelerometerLayout);
+        accelerometerGraphics = (LinearLayout) view.findViewById(R.id.accelerometer_graphics);
         valueXui = (TextView) view.findViewById(R.id.accValueX);
         valueYui = (TextView) view.findViewById(R.id.accValueY);
         valueZui = (TextView) view.findViewById(R.id.accValueZ);

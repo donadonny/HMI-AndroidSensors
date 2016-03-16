@@ -15,7 +15,7 @@ import android.widget.TextView;
 /**
  * Created by mlaticek on 2/22/2016.
  */
-public class Compass extends Fragment implements SensorEventListener {
+public class MagneticFieldSensor extends Fragment implements SensorEventListener {
 
 
     private Context context;
@@ -28,7 +28,7 @@ public class Compass extends Fragment implements SensorEventListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View fragView = inflater.inflate(R.layout.compass_fragment, container, false);
+        View fragView = inflater.inflate(R.layout.magneticfieldsensor_fragment, container, false);
         initView(fragView);
 
         context = getActivity().getApplicationContext();
