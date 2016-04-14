@@ -1,6 +1,5 @@
 package sk.stuba.fei.hmi_androidsensors;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -11,12 +10,13 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import sk.stuba.fei.helpClasses.AppConstants;
 
 public class MainActivity extends AppCompatActivity {
 

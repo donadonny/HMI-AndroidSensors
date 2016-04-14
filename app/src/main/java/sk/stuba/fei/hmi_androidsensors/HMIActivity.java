@@ -2,6 +2,7 @@ package sk.stuba.fei.hmi_androidsensors;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 /**
@@ -19,26 +20,41 @@ public class HMIActivity extends AppCompatActivity {
                 return;
             }
 
-            Accelerometer accelerometer = new Accelerometer();
-            accelerometer.setArguments(getIntent().getExtras());
+            getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+                public void onBackStackChanged() {
+                    int backCount = getSupportFragmentManager().getBackStackEntryCount();
+                    if (backCount == 0) {
+                        finish();
+                    }
+                }
+            });
 
-            LightSensor lightSensor = new LightSensor();
-            lightSensor.setArguments(getIntent().getExtras());
+            if (savedInstanceState == null) {
 
-            ProximitySensor proximitySensor = new ProximitySensor();
-            proximitySensor.setArguments(getIntent().getExtras());
+                HMIGlobalView hmiGlobalView = new HMIGlobalView();
 
-            MagneticFieldSensor magneticFieldSensor = new MagneticFieldSensor();
-            magneticFieldSensor.setArguments(getIntent().getExtras());
+//            Accelerometer accelerometer = new Accelerometer();
+//            accelerometer.setArguments(getIntent().getExtras());
+//
+//            LightSensor lightSensor = new LightSensor();
+//            lightSensor.setArguments(getIntent().getExtras());
+//
+//            ProximitySensor proximitySensor = new ProximitySensor();
+//            proximitySensor.setArguments(getIntent().getExtras());
+//
+//            MagneticFieldSensor magneticFieldSensor = new MagneticFieldSensor();
+//            magneticFieldSensor.setArguments(getIntent().getExtras());
 
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.add(R.id.fragment_container, accelerometer, "draw");
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.add(R.id.fragment_container, hmiGlobalView).addToBackStack(null);
+//            fragmentTransaction.add(R.id.fragment_container, accelerometer, "draw");
 //            fragmentTransaction.add(R.id.fragment_container, accelerometer);
-            fragmentTransaction.add(R.id.fragment_container, lightSensor);
-            fragmentTransaction.add(R.id.fragment_container, proximitySensor);
-            fragmentTransaction.add(R.id.fragment_container, magneticFieldSensor);
+//            fragmentTransaction.add(R.id.fragment_container, lightSensor);
+//            fragmentTransaction.add(R.id.fragment_container, proximitySensor);
+//            fragmentTransaction.add(R.id.fragment_container, magneticFieldSensor);
 
-            fragmentTransaction.commit();
+                fragmentTransaction.commit();
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-package sk.stuba.fei.hmi_androidsensors;
+package sk.stuba.fei.helpClasses;
 
 /**
  * Created by mlaticek on 3/9/2016.
