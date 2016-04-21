@@ -37,19 +37,21 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Notification 1"
-            android:id="@+id/textView" />
+            android:text="!!! Critical Notification"
+            android:id="@+id/textView"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Notification 2"
+            android:text="! Warning Notification"
             android:id="@+id/textView2" />
 
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Longer notification 3"
+            android:text="Informational notification"
             android:id="@+id/textView3" />
+
     </LinearLayout>
 </LinearLayout>

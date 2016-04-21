@@ -27,7 +27,7 @@ public class LightSensorSummaryFragment extends Fragment implements SensorEventL
     private Sensor sensor;
 
     private LinearLayout mainContainer;
-    private FrameLayout lightSensorViewContainer;
+    private LinearLayout lightSensorViewContainer;
     private LightIndicatorView lightIndicatorView;
 
     @Override
@@ -50,7 +50,7 @@ public class LightSensorSummaryFragment extends Fragment implements SensorEventL
 
     private void initView(View view) {
         mainContainer = (LinearLayout) view.findViewById(R.id.lightSensorContainer);
-        lightSensorViewContainer = (FrameLayout) view.findViewById(R.id.light_sensor_summary_canvas);
+        lightSensorViewContainer = (LinearLayout) view.findViewById(R.id.light_sensor_summary_canvas);
         lightIndicatorView = new LightIndicatorView(context);
         lightSensorViewContainer.addView(lightIndicatorView);
     }

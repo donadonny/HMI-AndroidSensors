@@ -5,18 +5,25 @@
     android:layout_height="fill_parent"
     android:background="@drawable/layout_border_grey"
     android:orientation="vertical"
-    android:padding="6dp">
+    android:padding="6dp"
+    android:paddingBottom="6dp"
+    android:paddingLeft="6dp"
+    android:paddingRight="6dp"
+    android:paddingTop="6dp"
+    android:weightSum="1">
 
     <TextView
         android:id="@+id/lightsensor_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Light Sensor" />
+        android:text="Light Sensor"
+        android:layout_margin="6dp" />
 
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/light_sensor_summary_canvas"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"></FrameLayout>
+        android:layout_height="fill_parent"
+        android:orientation="vertical"></LinearLayout>
 
 </LinearLayout>

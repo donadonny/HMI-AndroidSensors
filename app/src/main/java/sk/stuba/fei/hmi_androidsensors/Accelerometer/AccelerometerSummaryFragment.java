@@ -7,6 +7,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import sk.stuba.fei.hmi_androidsensors.R;
 public class AccelerometerSummaryFragment extends Fragment implements SensorEventListener {
 
     private Context context;
+    private LinearLayout mainContainer;
     private AccelerometerGLView accelerometerGLview;
 
     private SensorManager sensorManager;
@@ -52,6 +54,7 @@ public class AccelerometerSummaryFragment extends Fragment implements SensorEven
 //            sensorManager.registerListener(this, magneticField, SensorManager.SENSOR_DELAY_NORMAL);
 //        }
         View fragView = inflater.inflate(R.layout.accelerometer_fragment, container, false);
+        mainContainer = (LinearLayout)fragView.findViewById(R.id.acc_fragment_container);
         LinearLayout linearLayout = (LinearLayout) fragView.findViewById(R.id.acc_summary_fragment);
         accelerometerGLview = new AccelerometerGLView(context);
         linearLayout.addView(accelerometerGLview);
@@ -70,7 +73,6 @@ public class AccelerometerSummaryFragment extends Fragment implements SensorEven
                 if(Math.abs(accValues[0]-event.values[0]) > 1.0 ||
                         Math.abs(accValues[1] - event.values[1]) > 1.0) {
                     accValues = event.values.clone();
-//                    Log.i("AccelerometerSummaryFragment", "Acc Values = X: " + String.valueOf(accValues[0]) + " Y: " +String.valueOf(accValues[1]) + " Z: " + String.valueOf(accValues[2]));
                     redraw = true;
                 }
                 break;
@@ -86,6 +88,12 @@ public class AccelerometerSummaryFragment extends Fragment implements SensorEven
             redraw = false;
             accelerometerGLview.reRender(accValues, magneticValues);
         }
+
+        if(Math.abs(event.values[0]) > 7.0f || Math.abs(event.values[1]) > 7.0f || event.values[2] < 5.0f) {
+            mainContainer.setBackground(ContextCompat.getDrawable(context, R.drawable.layout_border_red));
+        } else {
+            mainContainer.setBackground(ContextCompat.getDrawable(context, R.drawable.layout_border_grey));
+        }
     }
 
     @Override
@@ -97,7 +105,7 @@ public class AccelerometerSummaryFragment extends Fragment implements SensorEven
     public void onResume() {
         super.onResume();
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
-        sensorManager.registerListener(this, magneticField, SensorManager.SENSOR_DELAY_NORMAL);
+//        sensorManager.registerListener(this, magneticField, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override

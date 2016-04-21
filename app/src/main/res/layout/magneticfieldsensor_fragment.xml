@@ -10,9 +10,9 @@
 
     <TextView
         android:id="@+id/compass_title"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Compass" />
+        android:text="Magnetic Filed Sensor" />
 
     <LinearLayout
         android:layout_width="match_parent"
