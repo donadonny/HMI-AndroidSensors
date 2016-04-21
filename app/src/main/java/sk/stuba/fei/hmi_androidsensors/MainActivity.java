@@ -32,17 +32,22 @@ public class MainActivity extends AppCompatActivity {
             for (final Sensor sensor : deviceSensors) {
                 CheckBox cb = new CheckBox(this);
                 cb.setText(sensor.getName());
-                cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                SensorConfiguration sensorConfig = new SensorConfiguration(sensor.getType());
+                if(sensorConfig.isActive()) {
+                    cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        if (isChecked) {
-                            selectedSensors.add(sensor.getType());
-                        } else {
-                            selectedSensors.remove(sensor.getType());
+                        @Override
+                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                            if (isChecked) {
+                                selectedSensors.add(sensor.getType());
+                            } else {
+                                selectedSensors.remove((Integer)sensor.getType());
+                            }
                         }
-                    }
-                });
+                    });
+                } else {
+                    cb.setEnabled(false);
+                }
                 linearLayout.addView(cb);
             }
         } else {
@@ -65,5 +70,15 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(AppConstants.SELECTED_SENSOR_TYPE_LIST, selectedSensors);
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
     }
 }

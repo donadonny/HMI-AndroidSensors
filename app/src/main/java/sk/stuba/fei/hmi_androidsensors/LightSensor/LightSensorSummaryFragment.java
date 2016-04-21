@@ -1,21 +1,20 @@
 package sk.stuba.fei.hmi_androidsensors.LightSensor;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-
+import sk.stuba.fei.helpClasses.Intensity;
 import sk.stuba.fei.hmi_androidsensors.R;
 
 /**
@@ -27,29 +26,33 @@ public class LightSensorSummaryFragment extends Fragment implements SensorEventL
     private SensorManager sensorManager;
     private Sensor sensor;
 
-    private TextView lightReadingValue;
+    private LinearLayout mainContainer;
+    private FrameLayout lightSensorViewContainer;
+    private LightIndicatorView lightIndicatorView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        context = getActivity().getApplicationContext();
+
         View fragView = inflater.inflate(R.layout.lightsensor_fragment, container, false);
         initView(fragView);
 
-        context = getActivity().getApplicationContext();
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         if (sensor != null) {
             sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
-        } else {
-            lightReadingValue.setText("Sensor Not Available");
         }
 
         return fragView;
     }
 
     private void initView(View view) {
-        lightReadingValue = (TextView) view.findViewById(R.id.lightSensValue);
+        mainContainer = (LinearLayout) view.findViewById(R.id.lightSensorContainer);
+        lightSensorViewContainer = (FrameLayout) view.findViewById(R.id.light_sensor_summary_canvas);
+        lightIndicatorView = new LightIndicatorView(context);
+        lightSensorViewContainer.addView(lightIndicatorView);
     }
 
     @Override
@@ -66,7 +69,32 @@ public class LightSensorSummaryFragment extends Fragment implements SensorEventL
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        lightReadingValue.setText(Float.toString(event.values[0]));
+        float light = event.values[0];
+        if(light <= 5f) {
+            lightIndicatorView.redraw(Intensity.very_low);
+            mainContainer.setBackground(ContextCompat.getDrawable(context, R.drawable.layout_border_red));
+            return;
+        }
+        if(light <= 15f) {
+            lightIndicatorView.redraw(Intensity.low);
+            mainContainer.setBackground(ContextCompat.getDrawable(context, R.drawable.layout_border_amber));
+            return;
+        }
+        if(light <= 25f) {
+            lightIndicatorView.redraw(Intensity.medium);
+            mainContainer.setBackground(ContextCompat.getDrawable(context, R.drawable.layout_border_grey));
+            return;
+        }
+        if(light <= 35f) {
+            lightIndicatorView.redraw(Intensity.high);
+            mainContainer.setBackground(ContextCompat.getDrawable(context, R.drawable.layout_border_amber));
+            return;
+        }
+        if(light >35f) {
+            lightIndicatorView.redraw(Intensity.very_high);
+            mainContainer.setBackground(ContextCompat.getDrawable(context, R.drawable.layout_border_red));
+            return;
+        }
     }
 
     @Override

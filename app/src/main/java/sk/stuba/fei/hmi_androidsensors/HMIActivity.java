@@ -1,6 +1,5 @@
 package sk.stuba.fei.hmi_androidsensors;
 
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -8,18 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import sk.stuba.fei.hmi_androidsensors.Accelerometer.Accelerometer;
 import sk.stuba.fei.hmi_androidsensors.Accelerometer.AccelerometerActivity;
-import sk.stuba.fei.hmi_androidsensors.Accelerometer.AccelerometerSummaryFragment;
-import sk.stuba.fei.hmi_androidsensors.LightSensor.LightSensorSummaryFragment;
-import sk.stuba.fei.hmi_androidsensors.MagneticFieldSensor.MagneticFieldSensorSummaryFragment;
-import sk.stuba.fei.hmi_androidsensors.ProximitySensor.ProximitySensorSummaryFragment;
 
 /**
  * Created by mlaticek on 3/9/2016.
@@ -45,15 +38,6 @@ public class HMIActivity extends AppCompatActivity {
             if (savedInstanceState != null) {
                 return;
             }
-
-//            getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
-//                public void onBackStackChanged() {
-//                    int backCount = getSupportFragmentManager().getBackStackEntryCount();
-//                    if (backCount == 0) {
-//                        finish();
-//                    }
-//                }
-//            });
 
             if (savedInstanceState == null) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
@@ -99,45 +83,55 @@ public class HMIActivity extends AppCompatActivity {
     }
 
     public void startTopLeftDetail(View view) {
-        Context context = getApplicationContext();
-        CharSequence text = "Top Left";
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-//        Intent intent = new Intent(this, selectedSensorConfigs.get(0).getDetailActivityClass());
-//        startActivity(intent);
+//        Context context = getApplicationContext();
+//        CharSequence text =  selectedSensorConfigs.get(0).getDetailActivityClass().toString();
+//        int duration = Toast.LENGTH_SHORT;
+//        Toast toast = Toast.makeText(context, text, duration);
+//        toast.show();
+        Intent intent = new Intent(this, selectedSensorConfigs.get(0).getDetailActivityClass());
+        startActivity(intent);
     }
 
     public void startBottomLeftDetail(View view) {
-        Context context = getApplicationContext();
-        CharSequence text = "Bottom Left";
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-//        Intent intent = new Intent(this, selectedSensorConfigs.get(1).getDetailActivityClass());
-//        startActivity(intent);
+//        Context context = getApplicationContext();
+//        CharSequence text = "Bottom Left";
+//        int duration = Toast.LENGTH_SHORT;
+//        Toast toast = Toast.makeText(context, text, duration);
+//        toast.show();
+        Intent intent = new Intent(this, selectedSensorConfigs.get(1).getDetailActivityClass());
+        startActivity(intent);
 
     }
 
     public void startTopRightDetail(View view) {
-        Context context = getApplicationContext();
-        CharSequence text = "Top Right";
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-//        Intent intent = new Intent(this, selectedSensorConfigs.get(2).getDetailActivityClass());
-//        startActivity(intent);
+//        Context context = getApplicationContext();
+//        CharSequence text = "Top Right";
+//        int duration = Toast.LENGTH_SHORT;
+//        Toast toast = Toast.makeText(context, text, duration);
+//        toast.show();
+        Intent intent = new Intent(this, selectedSensorConfigs.get(2).getDetailActivityClass());
+        startActivity(intent);
 
     }
 
     public void startBottomRightDetail(View view) {
-        Context context = getApplicationContext();
-        CharSequence text = "Bottom Right";
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-//        Intent intent = new Intent(this, selectedSensorConfigs.get(3).getDetailActivityClass());
-//        startActivity(intent);
+//        Context context = getApplicationContext();
+//        CharSequence text = "Bottom Right";
+//        int duration = Toast.LENGTH_SHORT;
+//        Toast toast = Toast.makeText(context, text, duration);
+//        toast.show();
+        Intent intent = new Intent(this, selectedSensorConfigs.get(3).getDetailActivityClass());
+        startActivity(intent);
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
     }
 }

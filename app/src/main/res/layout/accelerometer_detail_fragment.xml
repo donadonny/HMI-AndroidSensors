@@ -10,11 +10,12 @@
         android:layout_height="wrap_content"
         android:text="Accelerometer"
         android:id="@+id/accelerometer_title"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
         android:background="#c9c9c9"
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
-        style="@style/Base.TextAppearance.AppCompat.Title" />
+        style="@style/Base.TextAppearance.AppCompat.Title"
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -24,9 +25,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:paddingLeft="3dp"
-            android:paddingRight="3dp">
+            android:layout_height="fill_parent">
 
             <LinearLayout
                 android:orientation="horizontal"

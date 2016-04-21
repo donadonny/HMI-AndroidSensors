@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import sk.stuba.fei.hmi_androidsensors.LightSensor.LightIndicatorView;
 import sk.stuba.fei.hmi_androidsensors.R;
 
 /**

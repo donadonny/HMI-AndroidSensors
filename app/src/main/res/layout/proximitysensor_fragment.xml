@@ -3,7 +3,7 @@
     android:id="@+id/proximitySensorContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/layout_border"
+    android:background="@drawable/layout_border_grey"
     android:orientation="vertical"
     android:padding="6dp"
     android:weightSum="1">
