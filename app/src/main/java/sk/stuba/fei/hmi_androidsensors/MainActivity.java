@@ -16,11 +16,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import sk.stuba.fei.helpClasses.AppConstants;
-
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<String> selectedSensors = new ArrayList<String>();
+    private ArrayList<Integer> selectedSensors = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         List<Sensor> deviceSensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.sensorList);
         if (deviceSensors.size() > 0) {
-            for (Sensor sensor : deviceSensors) {
+            for (final Sensor sensor : deviceSensors) {
                 CheckBox cb = new CheckBox(this);
                 cb.setText(sensor.getName());
                 cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -39,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if (isChecked) {
-                            selectedSensors.add(buttonView.getText().toString());
+                            selectedSensors.add(sensor.getType());
                         } else {
-                            selectedSensors.remove(buttonView.getText().toString());
+                            selectedSensors.remove(sensor.getType());
                         }
                     }
                 });
@@ -64,9 +62,8 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
         } else {
             Intent intent = new Intent(this, HMIActivity.class);
-            intent.putExtra(AppConstants.SELECTED_SENSOR_LIST, selectedSensors);
+            intent.putExtra(AppConstants.SELECTED_SENSOR_TYPE_LIST, selectedSensors);
             startActivity(intent);
         }
-
     }
 }

@@ -1,10 +1,9 @@
-package sk.stuba.fei.helpClasses;
+package sk.stuba.fei.hmi_androidsensors.Accelerometer;
 
 
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
-import android.os.SystemClock;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +14,7 @@ import javax.microedition.khronos.opengles.GL10;
 /**
  * Created by mlaticek on 4/14/2016.
  */
-public class HMIGLRenderer implements GLSurfaceView.Renderer {
+public class AccelerometerGLRenderer implements GLSurfaceView.Renderer {
 
     /** Rotation increment per frame. */
     private static final float CUBE_ROTATION_INCREMENT = 1.0f;
@@ -32,7 +31,7 @@ public class HMIGLRenderer implements GLSurfaceView.Renderer {
     public float[] mRotationMatrix;
     private final float[] mFinalMVPMatrix;
 
-    private Pointer pointer;
+    private BlockGL blockGL;
     private float mCubeRotation;
 
     public float getmCubeRotation() {
@@ -45,7 +44,7 @@ public class HMIGLRenderer implements GLSurfaceView.Renderer {
 
     private long mLastUpdateMillis;
 
-    public HMIGLRenderer() {
+    public AccelerometerGLRenderer() {
         mMVPMatrix = new float[16];
         mProjectionMatrix = new float[16];
         mViewMatrix = new float[16];
@@ -59,11 +58,11 @@ public class HMIGLRenderer implements GLSurfaceView.Renderer {
     @Override
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
         // Set the background frame color
-        GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        GLES20.glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
         GLES20.glClearDepthf(1.0f);
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
         GLES20.glDepthFunc(GLES20.GL_LEQUAL);
-        pointer = new Pointer();
+        blockGL = new BlockGL();
     }
 
     @Override
@@ -88,6 +87,6 @@ public class HMIGLRenderer implements GLSurfaceView.Renderer {
         Matrix.multiplyMM(mFinalMVPMatrix, 0, mMVPMatrix, 0, mRotationMatrix, 0);
 
         // Draw cube.
-        pointer.draw(mFinalMVPMatrix);
+        blockGL.draw(mFinalMVPMatrix);
     }
 }

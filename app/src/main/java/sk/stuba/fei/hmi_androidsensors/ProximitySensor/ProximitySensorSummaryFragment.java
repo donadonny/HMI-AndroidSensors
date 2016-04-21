@@ -1,7 +1,6 @@
-package sk.stuba.fei.hmi_androidsensors;
+package sk.stuba.fei.hmi_androidsensors.ProximitySensor;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -13,41 +12,40 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
+import sk.stuba.fei.hmi_androidsensors.R;
 
 /**
  * Created by mlaticek on 2/22/2016.
  */
-public class LightSensor extends Fragment implements SensorEventListener {
+public class ProximitySensorSummaryFragment extends Fragment implements SensorEventListener {
+
 
     private Context context;
     private SensorManager sensorManager;
     private Sensor sensor;
 
-    private TextView lightReadingValue;
+    private TextView proximityValueUI;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View fragView = inflater.inflate(R.layout.lightsensor_fragment, container, false);
+        View fragView = inflater.inflate(R.layout.proximitysensor_fragment, container, false);
         initView(fragView);
 
         context = getActivity().getApplicationContext();
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         if (sensor != null) {
             sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
         } else {
-            lightReadingValue.setText("Sensor Not Available");
+            proximityValueUI.setText("Sensor Not Available");
         }
 
         return fragView;
     }
 
     private void initView(View view) {
-        lightReadingValue = (TextView) view.findViewById(R.id.lightSensValue);
+        proximityValueUI = (TextView) view.findViewById(R.id.proximityValue);
     }
 
     @Override
@@ -64,7 +62,7 @@ public class LightSensor extends Fragment implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        lightReadingValue.setText(Float.toString(event.values[0]));
+        proximityValueUI.setText(Float.toString(event.values[0]));
     }
 
     @Override

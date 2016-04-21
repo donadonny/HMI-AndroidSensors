@@ -1,4 +1,4 @@
-package sk.stuba.fei.helpClasses;
+package sk.stuba.fei.hmi_androidsensors.Accelerometer;
 
 import android.opengl.GLES20;
 
@@ -11,18 +11,18 @@ import javax.microedition.khronos.opengles.GL10;
 /**
  * Created by mlaticek on 4/14/2016.
  */
-public class Pointer {
+public class BlockGL {
 
     /** Cube vertices */
     private static final float VERTICES[] = {
-            -0.3f, -0.5f, -0.1f,
-            0.3f, -0.5f, -0.1f,
-            0.3f, 0.5f, -0.1f,
-            -0.3f, 0.5f, -0.1f,
-            -0.3f, -0.5f, 0.1f,
-            0.3f, -0.5f, 0.1f,
-            0.3f, 0.5f, 0.1f,
-            -0.3f, 0.5f, 0.1f
+            -0.3f, -0.1f, -0.5f,
+            0.3f, -0.1f, -0.5f,
+            0.3f, 0.1f, -0.5f,
+            -0.3f, 0.1f, -0.5f,
+            -0.3f, -0.1f, 0.5f,
+            0.3f, -0.1f, 0.5f,
+            0.3f, 0.1f, 0.5f,
+            -0.3f, 0.1f, 0.5f
 //            -0.5f, -0.5f, -0.5f,
 //            0.5f, -0.5f, -0.5f,
 //            0.5f, 0.5f, -0.5f,
@@ -103,7 +103,7 @@ public class Pointer {
     private final int mColorHandle;
     private final int mMVPMatrixHandle;
 
-    public Pointer() {
+    public BlockGL() {
         ByteBuffer byteBuffer = ByteBuffer.allocateDirect(VERTICES.length * 4);
 
         byteBuffer.order(ByteOrder.nativeOrder());

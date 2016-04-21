@@ -1,4 +1,4 @@
-package sk.stuba.fei.hmi_androidsensors;
+package sk.stuba.fei.hmi_androidsensors.Accelerometer;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -13,7 +13,7 @@ import sk.stuba.fei.helpClasses.Scale;
 /**
  * Created by mlaticek on 3/13/2016.
  */
-public class AccelerometerVisual extends View {
+public class AccelerometerView extends View {
     private Paint axis = new Paint();
     private Paint indicator = new Paint();
     private int xAxisYposition = 30;
@@ -26,7 +26,7 @@ public class AccelerometerVisual extends View {
 
     private Scale scale;
 
-    public AccelerometerVisual(Context context, Range domain) {
+    public AccelerometerView(Context context, Range domain) {
         super(context);
 
         axis.setColor(Color.DKGRAY);

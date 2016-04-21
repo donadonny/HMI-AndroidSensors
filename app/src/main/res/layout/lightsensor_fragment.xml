@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lightSensorContainer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/layout_border"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:padding="6dp">
 
     <TextView
+        android:id="@+id/lightsensor_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Light Sensor"
-        android:id="@+id/lightsensor_title" />
+        android:text="Light Sensor" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Light Reading:"
             android:id="@+id/lightSensLabel"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0.0000"
-            android:id="@+id/lightSensValue" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Light Reading:" />
+
+        <TextView
+            android:id="@+id/lightSensValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0000" />
     </LinearLayout>
 </LinearLayout>

@@ -1,4 +1,4 @@
-package sk.stuba.fei.hmi_androidsensors;
+package sk.stuba.fei.hmi_androidsensors.MagneticFieldSensor;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -12,10 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import sk.stuba.fei.hmi_androidsensors.R;
+
 /**
  * Created by mlaticek on 2/22/2016.
  */
-public class MagneticFieldSensor extends Fragment implements SensorEventListener {
+public class MagneticFieldSensorSummaryFragment extends Fragment implements SensorEventListener {
 
 
     private Context context;

@@ -1,4 +1,4 @@
-package sk.stuba.fei.hmi_androidsensors;
+package sk.stuba.fei.hmi_androidsensors.Accelerometer;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -17,6 +17,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 import sk.stuba.fei.helpClasses.Range;
+import sk.stuba.fei.hmi_androidsensors.R;
 
 /**
  * Created by mlaticek on 2/22/2016.
@@ -26,7 +27,7 @@ public class Accelerometer extends Fragment implements SensorEventListener {
     private Context context;
     private LinearLayout accelerometerLayout;
     private LinearLayout accelerometerGraphics;
-    private AccelerometerVisual accVisual;
+    private AccelerometerView accVisual;
 
     private SensorManager sensorManager;
     private Sensor sensor;
@@ -47,7 +48,7 @@ public class Accelerometer extends Fragment implements SensorEventListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View fragView = inflater.inflate(R.layout.accelerometer_fragment, container, false);
+        View fragView = inflater.inflate(R.layout.accelerometer_detail_fragment, container, false);
         context = getActivity().getApplicationContext();
         initView(fragView);
 
@@ -60,13 +61,13 @@ public class Accelerometer extends Fragment implements SensorEventListener {
         }
 
         // add canvas
-        accVisual = new AccelerometerVisual(context, new Range(-sensor.getMaximumRange()/3, sensor.getMaximumRange()/3));
+        accVisual = new AccelerometerView(context, new Range(-sensor.getMaximumRange()/3, sensor.getMaximumRange()/3));
         accelerometerGraphics.addView(accVisual);
         return fragView;
     }
 
     private void initView(View view) {
-        accelerometerLayout = (LinearLayout) view.findViewById(R.id.accelerometerLayout);
+        accelerometerLayout = (LinearLayout) view.findViewById(R.id.accelerometerSensorContainer);
         accelerometerGraphics = (LinearLayout) view.findViewById(R.id.accelerometer_graphics);
         valueXui = (TextView) view.findViewById(R.id.accValueX);
         valueYui = (TextView) view.findViewById(R.id.accValueY);

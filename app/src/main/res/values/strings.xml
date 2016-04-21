@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HMI-AndroidSensors</string>
+    <string name="AccSensorTitle">Accelerometer</string>
 </resources>

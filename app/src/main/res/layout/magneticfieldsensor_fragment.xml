@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/magneticSensorContainer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/layout_border"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:padding="6dp"
     android:weightSum="1">
 
     <TextView
+        android:id="@+id/compass_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Compass"
-        android:id="@+id/compass_title" />
+        android:text="Compass" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Angle:"
             android:id="@+id/compassLabel"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0.0000"
-            android:id="@+id/compassValue" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Angle:" />
+
+        <TextView
+            android:id="@+id/compassValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0000" />
     </LinearLayout>
 </LinearLayout>
